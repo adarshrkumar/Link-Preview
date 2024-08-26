@@ -1,0 +1,79 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,600;0,700;0,800;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+body {
+  font-family: 'Poppins', Arial, Helvetica, sans-serif;
+}
+
+.preview {
+  --content-height: 55.52px;
+  --border-radius: 15px;
+  isolation: isolate;
+  /* 326px */
+  width: max(326px, 34.79188900747065vh);
+  /* 219px */
+  height: max(219px, 23.372465314834578vh);
+  border-radius: var(--border-radius);
+  display: flex;
+  flex-direction: column;
+
+  --background-position: var(--bp-h, center) var(--bp-v, center);
+  background-size: cover;
+  background-position: var(--background-position);
+  cursor: var(--cursor, auto);
+  color: black;
+  text-decoration: none;
+}
+
+.preview > .break {
+  flex: 1;
+  background-color: rgba(255, 255, 255, 50%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: opacity var(--transition-time) ease;
+}
+
+.preview:hover > .break {
+  opacity: 1 !important;
+}
+
+.preview > .content {
+  --padding: 5px;
+  background: lightgray;
+
+  height: calc(var(--content-height) - var(--padding));
+  border-radius: 0 0 var(--border-radius) var(--border-radius);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 5px 12px 0;
+  font-size: 12.5px;
+  line-height: 1.3em;
+  position: relative;
+}
+
+.preview > .content > * {
+  display: block;
+  width: 100%;
+  height: auto;
+  text-wrap: nowrap;
+  overflow-x: hidden;
+}
+
+.preview > .content > * {
+  overflow-y: hidden;
+}
+
+.preview > .content > :first-child {
+  font-weight: bold;
+}
+
+.preview > .content > :first-child.title {
+  max-width: 100%;
+  text-overflow: ellipsis;
+}
+
+.preview > .content > .domain {
+  color: gray;
+}
